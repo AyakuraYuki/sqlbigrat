@@ -73,17 +73,6 @@ func (r *Rat) Value() (driver.Value, error) {
 	return r.Rat.String(), nil
 }
 
-func (r *Rat) MarshalJSON() ([]byte, error) {
-	if r.Rat == nil {
-		return []byte("null"), nil
-	}
-	return []byte(r.Rat.FloatString(16)), nil
-}
-
-func (r *Rat) UnmarshalJSON(data []byte) error {
-	return r.Scan(string(data))
-}
-
 func (r *Rat) String() string {
-	return r.Rat.FloatString(16)
+	return r.Rat.String()
 }
